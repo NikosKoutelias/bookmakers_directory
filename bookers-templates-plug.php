@@ -3,9 +3,9 @@
 Plugin Name: Bookers Templates
 Description: Templates For Bookmakers
 Version: 1.0
-Plugin URI: http://localhost/livestoixima.gr/wp-content/plugins/bookers-templates-plug/bookers-teplates-plug
+Plugin URI: http://localhost/livestoixima.gr/wp-content/plugins/bookers-templates-plug/bookers-teplates
 Author: Kout
-Author URI: http://localhost/livestoixima.gr/wp-content/plugins/bookers-templates-plug/bookers-teplates-plug
+Author URI: http://localhost/livestoixima.gr/wp-content/plugins/bookers-templates-plug/bookers-teplates
 */
 
 include "bookers-templates-shortcodes.php";
