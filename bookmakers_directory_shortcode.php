@@ -1,9 +1,9 @@
 
 <?php
 
-include "functions.php";
 
-function templates_shortcode($atts)
+
+function bookmakers_directory_short($atts)
 {
   $atts = shortcode_atts(
     array(
@@ -211,4 +211,4 @@ function templates_shortcode($atts)
   ob_end_clean();
   return $output;
 }
-add_shortcode('top_templates', 'templates_shortcode');
+add_shortcode('bookmakers_directory_short', 'bookmakers_directory_short');

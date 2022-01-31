@@ -5,13 +5,13 @@ if (!defined('ABSPATH'))
 	die('-1');
 
 add_action('widgets_init', function () {
-	register_widget('bookers_templates');
+	register_widget('Bookmakers_directory');
 });
 
 /**
  * Adds My_Widget widget.
  */
-class bookers_templates extends WP_Widget
+class Bookmakers_directory extends WP_Widget
 {
 	/**
 	 * Register widget with WordPress.
@@ -19,11 +19,11 @@ class bookers_templates extends WP_Widget
 	function __construct()
 	{
 		parent::__construct(
-			'top_bookers', // Base ID
-			__('Top Bookers'), // Name
+			'bookmakers_directory', // Base ID
+			__('Bookmakers Directory'), // Name
 			array(
 				'classname' => '',
-				'description' => __('Top Bookers')
+				'description' => __('Templates for sidebar or main content for all Bookmakers')
 			) // Args
 		);
 	}
@@ -63,13 +63,10 @@ class bookers_templates extends WP_Widget
 	public function form($instance)
 	{
 
-		if (isset($instance['title'])){
-			$title = $instance['title'];
-		}else{
-			$title = __('Default Title');
-		}
 		if (isset($instance['txt'])){
 			$txt = $instance['txt'];
+		}else{
+			$txt = "";
 		}
 		?>
 		<p>
