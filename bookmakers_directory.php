@@ -14,4 +14,8 @@ include "plugin_rest_api.php";
 
 if (!defined('ABSPATH')) exit;
 
+// $style =  get_stylesheet_directory();
+// $url = site_url() . '/wp-json/customroutes/bookmakersdata';
+// $response = wp_remote_get($url);
 
+// $data = json_decode(wp_remote_retrieve_body($response));

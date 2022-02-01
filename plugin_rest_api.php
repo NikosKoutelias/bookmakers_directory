@@ -25,8 +25,5 @@ function get_bookmakers_data($data)
 }
 
 
-$url = site_url() . '/wp-json/customroutes/bookmakersdata';
-$response = wp_remote_get($url);
-$data = json_decode(wp_remote_retrieve_body($response));
 
 ?>
