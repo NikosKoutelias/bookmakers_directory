@@ -39,6 +39,8 @@ function bookmakers_directory_short($atts)
   // Decode REST data and putting them into the $data array
   $data = rest_data();
  
+  $valid_data = valid($data);
+  
   // echo $data[0]["meta"]["bookmakers_custom_meta_hidden"][0];
   // die();
   // echo "<pre>";
@@ -46,25 +48,18 @@ function bookmakers_directory_short($atts)
   //   echo "</pre>";
   //   die();
 
-  //$allbookers = ShortcodeFilters::returnBookies($atts);
-
-  if($atts['sort_by'] <> ""  ){
-
+  // $allbookers = ShortcodeFilters::returnBookies($atts);
+  
     switch ($atts['sort_by']) {
       case "ASC":
-        $sorted_scores = sorted_bookmakers($data,"ASC");
+        $scores = sorted_bookmakers($valid_data,"ASC");
         break;
       case "DESC":
-        $sorted_scores  = sorted_bookmakers($data,"DESC");
+        $scores  = sorted_bookmakers($valid_data,"DESC");
         break;
       default:
-        $sorted_scores  = sorted_bookmakers($data, $atts['sort_by']);
+        $scores  = sorted_bookmakers($valid_data, $atts['sort_by']);
     }
-
-  }
-
-
-
 
   if ('card-layout' == $atts['layout']) {
 ?>
@@ -79,20 +74,23 @@ function bookmakers_directory_short($atts)
         $counter = 0;
         //foreach ($allbookers['books'] as $bookerID) {
 
-        for ($i = 0; $i < count($data); $i++){
+        foreach ($scores as $key => $score){
 
-          if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-            continue;
+          // if($data[$key]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
+          //   continue;
+          // }
+          if($atts['limit'] <>"" && $counter > $atts['limit']-1){
+            break;
           }
 
-          $terms = $data[$i]["meta"]["shortcode_short_term_text-"][0] . $iso ? $data[$i]["meta"]["shortcode_short_term_text-"][0] . $iso  : $data[$i]["meta"]["default_long_term_text-"][0] . $iso ;
+          $terms = $data[$key]["meta"]["shortcode_short_term_text-"][0] . $iso ? $data[$key]["meta"]["shortcode_short_term_text-"][0] . $iso  : $data[$key]["meta"]["default_long_term_text-"][0] . $iso ;
 
-          $bookerID_link = $data[$i]["meta"]["affiliate_url_for_cta"][0];
-          $pros = explode('&lt;/p&gt;', $data[$i]["meta"]['book_prons'][0]);
-          $score = floatval($data[$i]["meta"]["bk_final_score"][0]);
-          $image = $data[$i]["meta"]["bookmakers_custom_meta_sidebar_icon"][0];
-          $color = $data[$i]["meta"]["book_color"][0];
-          $title = $data[$i]["post_title"];
+          $bookerID_link = $data[$key]["meta"]["affiliate_url_for_cta"][0];
+          $pros = explode('&lt;/p&gt;', $data[$key]["meta"]['book_prons'][0]);
+          $score = floatval($data[$key]["meta"]["bk_final_score"][0]);
+          $image = $data[$key]["meta"]["bookmakers_custom_meta_sidebar_icon"][0];
+          $color = $data[$key]["meta"]["book_color"][0];
+          $title = $data[$key]["post_title"];
         ?>
           <div class="col-md-3 p-0 m-sm-1 m-lg-2 mb-2 d-flex flex-column rounded-lg shadow-box" style="background-color: <?= $color; ?>; overflow:hidden; max-width:200px;">
             <div class=" d-flex w-100 flex-column">
@@ -111,7 +109,7 @@ function bookmakers_directory_short($atts)
               </div>
 
                 <div class=" d-flex justify-content-center bookmenu " >
-                  <a class="" href="<?= get_the_permalink($data[$i]["ID"]); ?>" target="_blank">
+                  <a class="" href="<?= get_the_permalink($data[$key]["ID"]); ?>" target="_blank">
                   <div class="image-control mt-3 spritesimg <?php echo str_replace(" ","",substr(str_replace("live","",strtolower($title)),0));?>">
                   </div>
                   </a>
@@ -121,7 +119,7 @@ function bookmakers_directory_short($atts)
                 </div>
 
                 <div class="d-block text-center"style="z-index:2; background-color: <?= $color; ?>">
-                  <span class=" d-none d-md-block" ><a class="stoiximatikes-link-layout" href="<?php echo get_the_permalink($data[$i]["ID"]); ?>" target="_blank"><?php echo get_the_title($data[$i]["ID"]); ?></a></span>
+                  <span class=" d-none d-md-block" ><a class="stoiximatikes-link-layout" href="<?php echo get_the_permalink($data[$key]["ID"]); ?>" target="_blank"><?php echo get_the_title($data[$key]["ID"]); ?></a></span>
                   <div class="d-block ">
                     <div class=" d-flex justify-content-center align-self-center align-middle">
                       <?php echo  $stars = userVotes::drawStarsDefault($score / 2, 20) ?>
@@ -135,7 +133,7 @@ function bookmakers_directory_short($atts)
                     <?= $atts['cta'] ?>
                     <?php
                     if (empty($terms)) {
-                      echo regulator($data[$i]["ID"]);
+                      echo regulator($data[$key]["ID"]);
                     }
                     ?>
                     <div class="shiny-animation-slow"><i></i></div>
@@ -176,20 +174,20 @@ function bookmakers_directory_short($atts)
     
       <?php
       $counter = 0;
-      for ($i = 0; $i < count($data); $i++){
+      foreach ($scores as $key => $score){
         
-        if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-          continue;
+        if($atts['limit'] <>"" && $counter > $atts['limit']-1){
+          break;
         }
 
-        $terms = $data[$i]["meta"]["shortcode_short_term_text-"][0] . $iso ? $data[$i]["meta"]["shortcode_short_term_text-"][0] . $iso  : $data[$i]["meta"]["default_long_term_text-"][0] . $iso ;
+        $terms = $data[$key]["meta"]["shortcode_short_term_text-"][0] . $iso ? $data[$key]["meta"]["shortcode_short_term_text-"][0] . $iso  : $data[$key]["meta"]["default_long_term_text-"][0] . $iso ;
 
-        $bookerID_link = $data[$i]["meta"]["affiliate_url_for_cta"][0];
-        $pros = explode('&lt;/p&gt;', $data[$i]["meta"]['book_prons'][0]);
-        $score = floatval($data[$i]["meta"]["bk_final_score"][0]);
-        $image = $data[$i]["meta"]["bookmakers_custom_meta_sidebar_icon"][0];
-        $color = $data[$i]["meta"]["book_color"][0];
-        $title = $data[$i]["post_title"];
+        $bookerID_link = $data[$key]["meta"]["affiliate_url_for_cta"][0];
+        $pros = explode('&lt;/p&gt;', $data[$key]["meta"]['book_prons'][0]);
+        $score = floatval($data[$key]["meta"]["bk_final_score"][0]);
+        $image = $data[$key]["meta"]["bookmakers_custom_meta_sidebar_icon"][0];
+        $color = $data[$key]["meta"]["book_color"][0];
+        $title = $data[$key]["post_title"];
         
       ?>
         
@@ -202,7 +200,7 @@ function bookmakers_directory_short($atts)
             
             <div class="col-8 pr-2 pl-0 d-flex flex-column align-items-center">
               <div class="w-100 p-0">
-              <a class="text-center d-block text-danger stoiximatikes-link" href="<?php echo get_the_permalink($data[$i]["ID"]); ?>"><?php echo get_the_title($data[$i]["ID"]); ?> <span class="arrows"><i class="fas fa-angle-double-right"></i></span></a>
+              <a class="text-center d-block text-danger stoiximatikes-link" href="<?php echo get_the_permalink($data[$key]["ID"]); ?>"><?php echo get_the_title($data[$key]["ID"]); ?> <span class="arrows"><i class="fas fa-angle-double-right"></i></span></a>
               </div>
               <div class="w-100 d-md-block ">
                 <button class="btn btn-danger btn-sm d-block mx-auto button-text shadow rounded button-small-glossy position-relative"  > 
@@ -210,7 +208,7 @@ function bookmakers_directory_short($atts)
                     <?= $atts['cta'] ?>
                     <?php
                     if (empty($terms)) {
-                      echo regulator($data[$i]["ID"]);
+                      echo regulator($data[$key]["ID"]);
                     }
                     ?>
                     <div class="shiny-animation"><i></i></div>

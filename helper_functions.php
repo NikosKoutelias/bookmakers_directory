@@ -8,76 +8,74 @@ function rest_data(){
     return json_decode(wp_remote_retrieve_body($response),true);
     }   
 
-function sorted_bookmakers($data, $type){
 
-    for ($i = 0; $i < count($data); $i++){
+function valid($data){
 
-        if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-          continue;
+    $count = count($data);
+    for ($i = 0; $i < $count; $i++){
+
+        if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on" || $data[$i]["post_status"] != "publish"){
+          
+            unset($data[$i]);
         } 
-        $final_score[$i] = floatval($data[$i]["meta"]["bk_final_score"][0]);
+        //$valid[$i] = floatval($data[$i]["meta"]["bk_final_score"][0]);
     }
+
+    return $data;
+}
+
+function arrays_data($data,$search_item){
+
+    foreach($data as $key => $row){
+
+        $arr[$key] = floatval($row["meta"][$search_item][0]);   
+    }
+    return $arr;
+}
+
+function sorted_bookmakers($data, $type){
 
     if($type == "ASC"){
 
-        sort($final_score);
+        $final_score = arrays_data($data,"bk_final_score");
+        asort($final_score);
         return $final_score;
 
     }elseif($type == "DESC"){
 
-        rsort($final_score);
+        $final_score = arrays_data($data,"bk_final_score");
+        arsort($final_score);
         return $final_score;
     }
     else{
 
       $type_before = strstr($type,' ',true);
-      $type_after = strstr($type,' ',false);
+      $type_after = trim(strstr($type,' ',false));
 
-      if ($type_after == "ASC"){
+      if ($type_before == "ASC"){
 
-        switch($type_before){
+        switch($type_after){
 
             case "bk_cs6":
 
-                for ($i = 0; $i < count($data); $i++){
-
-                    if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-                      continue;
-                    } 
-                    $other_score[$i] = floatval($data[$i]["meta"]["bk_cs6"][0]);
-                    
-                }
-                sort($other_score);
+                $other_score = arrays_data($data,"bk_cs6");   
+                asort($other_score);
                 return $other_score;
 
             break;
 
             case "bk_cs5":
 
-                for ($i = 0; $i < count($data); $i++){
-
-                    if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-                      continue;
-                    } 
-                    $other_score[$i] = floatval($data[$i]["meta"]["bk_cs5"][0]);
-                    
-                }
-                sort($other_score);
+                $other_score = arrays_data($data,"bk_cs5");   
+                asort($other_score);
                 return $other_score;
 
             break;
             
             case "bk_cs4":
                 
-                for ($i = 0; $i < count($data); $i++){
-
-                    if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-                      continue;
-                    } 
-                    $other_score[$i] = floatval($data[$i]["meta"]["bk_cs4"][0]);
-                    
-                }
-                sort($other_score);
+                $other_score = arrays_data($data,"bk_cs4");
+                asort($other_score);
                 return $other_score;
 
             break;
@@ -85,30 +83,16 @@ function sorted_bookmakers($data, $type){
             case "bk_cs3":
 
                 
-                for ($i = 0; $i < count($data); $i++){
-
-                    if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-                      continue;
-                    } 
-                    $other_score[$i] = floatval($data[$i]["meta"]["bk_cs3"][0]);
-                    
-                }
-                sort($other_score);
+                $other_score = arrays_data($data,"bk_cs3");
+                asort($other_score);
                 return $other_score;
 
             break;
 
             case "bk_cs2":
 
-                for ($i = 0; $i < count($data); $i++){
-
-                    if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-                      continue;
-                    } 
-                    $other_score[$i] = floatval($data[$i]["meta"]["bk_cs2"][0]);
-                    
-                }
-                sort($other_score);
+                $other_score = arrays_data($data,"bk_cs2");
+                asort($other_score);
                 return $other_score;
 
             break;
@@ -116,129 +100,85 @@ function sorted_bookmakers($data, $type){
             case "bk_cs1":
 
                 
-                for ($i = 0; $i < count($data); $i++){
-
-                    if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-                      continue;
-                    } 
-                    $other_score[$i] = floatval($data[$i]["meta"]["bk_cs1"][0]);
-                    
-                }
-                sort($other_score);
+                $other_score = arrays_data($data,"bk_cs1");
+                asort($other_score);
                 return $other_score;
 
             break;
+
+            default:
+
+            $final_score = arrays_data($data,"bk_final_score");
+            return $final_score;
         }
         
       }
-      elseif($type_after = "DESC"){
+      elseif($type_before == "DESC"){
 
-        switch($type_before){
+        switch($type_after){
 
             case "bk_cs6":
 
-                for ($i = 0; $i < count($data); $i++){
-
-                    if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-                      continue;
-                    } 
-                    $other_score[$i] = floatval($data[$i]["meta"]["bk_cs6"][0]);
-                    
-                }
-                rsort($other_score);
+                $other_score = arrays_data($data,"bk_cs6");
+                arsort($other_score);
                 return $other_score;
 
             break;
 
             case "bk_cs5":
 
-                for ($i = 0; $i < count($data); $i++){
-
-                    if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-                      continue;
-                    } 
-                    $other_score[$i] = floatval($data[$i]["meta"]["bk_cs5"][0]);
-                    
-                }
-                rsort($other_score);
+                $other_score = arrays_data($data,"bk_cs5");
+                arsort($other_score);
                 return $other_score;
 
             break;
             
             case "bk_cs4":
                 
-                for ($i = 0; $i < count($data); $i++){
-
-                    if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-                      continue;
-                    } 
-                    $other_score[$i] = floatval($data[$i]["meta"]["bk_cs4"][0]);
-                    
-                }
-                rsort($other_score);
+                $other_score = arrays_data($data,"bk_cs4");
+                arsort($other_score);
                 return $other_score;
 
             break;
 
             case "bk_cs3":
-
-                
-                for ($i = 0; $i < count($data); $i++){
-
-                    if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-                      continue;
-                    } 
-                    $other_score[$i] = floatval($data[$i]["meta"]["bk_cs3"][0]);
-                    
-                }
-                rsort($other_score);
+          
+                $other_score = arrays_data($data,"bk_cs3");
+                arsort($other_score);
                 return $other_score;
 
             break;
 
             case "bk_cs2":
 
-                for ($i = 0; $i < count($data); $i++){
-
-                    if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-                      continue;
-                    } 
-                    $other_score[$i] = floatval($data[$i]["meta"]["bk_cs2"][0]);
-                    
-                }
-                rsort($other_score);
+                $other_score = arrays_data($data,"bk_cs2");
+                arsort($other_score);
                 return $other_score;
 
             break;
 
             case "bk_cs1":
-
-                
-                for ($i = 0; $i < count($data); $i++){
-
-                    if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-                      continue;
-                    } 
-                    $other_score[$i] = floatval($data[$i]["meta"]["bk_cs1"][0]);
-                    
-                }
-                rsort($other_score);
+  
+                $other_score = arrays_data($data,"bk_cs1");
+                arsort($other_score);
                 return $other_score;
-
+                
             break;
+            
+            default:
 
+                $final_score = arrays_data($data,"bk_final_score");
+                return $final_score;
         }
        
       }else{
-          throw "error";
+
+            $final_score = arrays_data($data,"bk_final_score");
+            return $final_score;
       }
-
     }
-
-
-     
-
 }
+       
 
 
   ?>
