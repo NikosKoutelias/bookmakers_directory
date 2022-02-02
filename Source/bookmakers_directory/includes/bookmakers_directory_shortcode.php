@@ -10,16 +10,16 @@ function bookmakers_directory_short($atts)
       'title' => '',
       'layout' => '', 
       'limit' => '',
-      //'offset' => '',
       'sort_by' => '', // "meta_key", ASC, DESC
       'cta' => '',
-      // 'download' => '',
-      // 'mobile' => '',
-      // 'legal' => '',
       'sorting_id' => '', // id = 1,2,3 TOP 3
       // 'pay_in' => '',
       // 'pay_out' => '',
       // 'ids' => '',
+      // 'download' => '',
+      // 'mobile' => '',
+      // 'legal' => '',
+      //'offset' => '',
     ),
     $atts,
     'table'

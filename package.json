@@ -1,10 +1,10 @@
 {
-  "name": "test-plug",
+  "name": "bookmakers_directory",
   "version": "1.0.0",
   "description": "",
   "private": true,
   "scripts": {
-    "start": "webpack --mode=development --config webpack.config.js",
+    "start": "webpack --mode=development --watch --config webpack.config.js",
     "build": "webpack --mode=production --config webpack.config.js"
   },
   "author": "",

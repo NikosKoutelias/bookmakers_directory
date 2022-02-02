@@ -5,9 +5,9 @@ module.exports = {
     context: path.resolve(__dirname, "assets"),
     output: {
         filename: "main.bundle.js",
-        path: path.resolve(__dirname, "assets/dist")
+        path: path.resolve(__dirname, "Source/bookmakers_directory/dist")
     },
-    watch: true,
+    
     plugins: [
         new MiniCssExtractPlugin(),
     ],
