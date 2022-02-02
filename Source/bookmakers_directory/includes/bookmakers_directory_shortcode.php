@@ -28,7 +28,7 @@ function bookmakers_directory_short($atts)
   //geoountry
   ob_start();
 
-  ?><style type="text/css"><?php include 'output.css'?></style><?php
+  wp_enqueue_style('custom_CSS');
 
   if ($GLOBALS['countryISO'] === 'glb') {
     $iso = '-';

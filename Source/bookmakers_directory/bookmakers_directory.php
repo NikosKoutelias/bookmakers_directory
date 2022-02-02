@@ -8,9 +8,17 @@ Author: Kout
 Author URI: http://localhost/livestoixima.gr/wp-content/plugins/bookmakers_directory/bookmakers_directory.php
 */
 
-include "bookmakers_directory_shortcode.php";
-include "bookmakers_directory_widget.php";
-include "plugin_rest_api.php";
+add_action('wp_enqueue_scripts', function () {
+
+    wp_register_style( 'custom_CSS', plugins_url('/dist/main.css', __FILE__),array(),false,'all');
+});
+
+
+require_once 'includes/bookmakers_directory_shortcode.php';
+require_once 'includes/bookmakers_directory_widget.php';
+require_once 'includes/plugin_rest_api.php';
+
+
 
 if (!defined('ABSPATH')) exit;
 

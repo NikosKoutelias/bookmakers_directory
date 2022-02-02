@@ -1,5 +1,7 @@
 <?php
 
+
+
 function rest_data(){
 
     $url = site_url() . '/wp-json/customroutes/bookmakersdata';
