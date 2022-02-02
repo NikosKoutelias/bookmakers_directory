@@ -11,16 +11,29 @@ function rest_data(){
     }   
 
 
-function valid($data){
+function valid($data, $names = ""){
 
     $count = count($data);
-    for ($i = 0; $i < $count; $i++){
 
-        if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on" || $data[$i]["post_status"] != "publish"){
-          
+    if($names <>""){
+        $namesarr = explode(", ",$names);
+        $name_count = count($namesarr);
+        for ($i = 0; $i < $count; $i++){
+            for ($j = 0; $j < $name_count; $j++){
+                if( $namesarr[$j] == $data[$i]["post_title"] && !($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on" || $data[$i]["post_status"] !== "publish")){
+                    $new_data[$i] = $data[$i];
+                }     
+            } 
             unset($data[$i]);
-        } 
-        //$valid[$i] = floatval($data[$i]["meta"]["bk_final_score"][0]);
+        }
+        return $new_data;
+    }else{
+        for ($i = 0; $i < $count; $i++){
+            if($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on" || $data[$i]["post_status"] != "publish"){
+
+                unset($data[$i]);
+            }
+        }
     }
 
     return $data;
@@ -34,6 +47,22 @@ function arrays_data($data,$search_item){
     }
     return $arr;
 }
+
+// function search($data, $names){
+//     $namesarr = explode(" ",$names);
+//     $count = count($namesarr);
+
+//     foreach($data as $key => $row){
+//         for ($i=0; $i < $count; $i++){
+//             if($namesarr[$i] == $row["post_title"]){
+
+//                 $picked[$key] = $row["meta"]["bk_final_score"][0];
+//             }
+//         }
+//     }
+//     return $namesarr;
+// }
+
 
 function sorted_bookmakers($data, $type){
 

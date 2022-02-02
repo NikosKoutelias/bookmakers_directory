@@ -10,7 +10,7 @@ function bookmakers_directory_short($atts)
       'title' => '',
       'layout' => '', 
       'limit' => '',
-      'sort_by' => '', // "meta_key", ASC, DESC
+      'sort_by' => '', // (ASC, DESC) "meta_key"
       'cta' => '',
       'sorting_id' => '', // id = 1,2,3 TOP 3
       // 'pay_in' => '',
@@ -25,7 +25,6 @@ function bookmakers_directory_short($atts)
     'table'
   );
 
-  //geoountry
   ob_start();
 
   wp_enqueue_style('custom_CSS');
@@ -38,9 +37,12 @@ function bookmakers_directory_short($atts)
  
   // Decode REST data and putting them into the $data array
   $data = rest_data();
- 
-  $valid_data = valid($data);
-  
+
+  if($atts['sorting_id'] <>""){
+    $valid_data = valid($data,$atts['sorting_id']);
+  }else{
+    $valid_data = valid($data);
+  }
   // echo $data[0]["meta"]["bookmakers_custom_meta_hidden"][0];
   // die();
   // echo "<pre>";
@@ -49,7 +51,8 @@ function bookmakers_directory_short($atts)
   //   die();
 
   // $allbookers = ShortcodeFilters::returnBookies($atts);
-  
+
+
     switch ($atts['sort_by']) {
       case "ASC":
         $scores = sorted_bookmakers($valid_data,"ASC");
@@ -60,6 +63,8 @@ function bookmakers_directory_short($atts)
       default:
         $scores  = sorted_bookmakers($valid_data, $atts['sort_by']);
     }
+
+    
 
   if ('card-layout' == $atts['layout']) {
 ?>
@@ -86,9 +91,7 @@ function bookmakers_directory_short($atts)
           $terms = $data[$key]["meta"]["shortcode_short_term_text-"][0] . $iso ? $data[$key]["meta"]["shortcode_short_term_text-"][0] . $iso  : $data[$key]["meta"]["default_long_term_text-"][0] . $iso ;
 
           $bookerID_link = $data[$key]["meta"]["affiliate_url_for_cta"][0];
-          $pros = explode('&lt;/p&gt;', $data[$key]["meta"]['book_prons'][0]);
           $score = floatval($data[$key]["meta"]["bk_final_score"][0]);
-          $image = $data[$key]["meta"]["bookmakers_custom_meta_sidebar_icon"][0];
           $color = $data[$key]["meta"]["book_color"][0];
           $title = $data[$key]["post_title"];
         ?>
