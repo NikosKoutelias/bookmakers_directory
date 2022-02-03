@@ -16,11 +16,11 @@ function valid($data, $names = ""){
     $count = count($data);
 
     if($names <>""){
-        $namesarr = explode(", ",$names);
-        $name_count = count($namesarr);
+        $idarr = explode(",",$names);
+        $id_count = count($idarr);
         for ($i = 0; $i < $count; $i++){
-            for ($j = 0; $j < $name_count; $j++){
-                if( $namesarr[$j] == $data[$i]["post_title"] && !($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on" || $data[$i]["post_status"] !== "publish")){
+            for ($j = 0; $j < $id_count; $j++){
+                if( $idarr[$j] == $data[$i]["ID"] && !($data[$i]["meta"]["bookmakers_custom_meta_hidden"][0] == "on" || $data[$i]["post_status"] !== "publish")){
                     $new_data[$i] = $data[$i];
                 }     
             } 

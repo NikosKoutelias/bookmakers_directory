@@ -17,6 +17,7 @@ add_action('wp_enqueue_scripts', function () {
 require_once 'includes/bookmakers_directory_shortcode.php';
 require_once 'includes/bookmakers_directory_widget.php';
 require_once 'includes/plugin_rest_api.php';
+require_once 'includes/bookmakers_post_type_generator.php';
 
 
 

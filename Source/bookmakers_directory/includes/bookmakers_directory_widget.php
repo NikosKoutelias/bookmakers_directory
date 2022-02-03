@@ -43,7 +43,7 @@ class Bookmakers_directory extends WP_Widget
 		If ( ! empty ( $title ) ){
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
-		add_filter( 'widget_text', 'do_shortcode' );
+		//add_filter( 'widget_text', 'do_shortcode' );
 
 		$output_text = do_shortcode($instance['txt']);
 
