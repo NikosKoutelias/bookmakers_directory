@@ -1,7 +1,7 @@
 
 <?php
 
-include "helper_functions.php";
+
 
 function bookmakers_directory_short($atts)
 {
@@ -28,6 +28,7 @@ function bookmakers_directory_short($atts)
   ob_start();
   $time_start = microtime(true);
   wp_enqueue_style('custom_CSS');
+  
 
   if ($GLOBALS['countryISO'] === 'glb') {
     $iso = '-';
@@ -43,7 +44,7 @@ function bookmakers_directory_short($atts)
   }else{
     $valid_data = valid($data);
   }
-  unset($data);
+ // unset($data);
   // echo $data[0]["meta"]["bookmakers_custom_meta_hidden"][0];
   // die();
   // echo "<pre>";
