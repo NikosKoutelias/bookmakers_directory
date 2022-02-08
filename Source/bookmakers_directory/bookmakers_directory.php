@@ -13,7 +13,8 @@ add_action('wp_enqueue_scripts', function () {
 });
 
 add_action('admin_enqueue_scripts', function(){
-    wp_enqueue_script('bookers_helpers',plugins_url('/dist/bookers_helpers.js', __FILE__),array(),false,false);
+    wp_enqueue_script('bookers_helpers',plugins_url('/dist/bookers_helpers.js', __FILE__),array('jquery'),false,false);
+   
 });
 
 
