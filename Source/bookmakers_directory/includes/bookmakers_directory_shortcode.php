@@ -55,16 +55,16 @@ function bookmakers_directory_short($atts)
   // $allbookers = ShortcodeFilters::returnBookies($atts);
 
 
-    switch ($atts['sort_by']) {
-      case "ASC":
-        $scores = sorted_bookmakers($valid_data,"ASC");
-        break;
-      case "DESC":
-        $scores  = sorted_bookmakers($valid_data,"DESC");
-        break;
-      default:
+    // switch ($atts['sort_by']) {
+    //   case "ASC":
+    //     $scores = sorted_bookmakers($valid_data,"ASC");
+    //     break;
+    //   case "DESC":
+    //     $scores  = sorted_bookmakers($valid_data,"DESC");
+    //     break;
+    //   default:
         $scores  = sorted_bookmakers($valid_data, $atts['sort_by']);
-    }
+    //}
 
     
 
@@ -209,8 +209,8 @@ function bookmakers_directory_short($atts)
               </div>
               <div class="w-100 d-md-block ">
                 <button class="btn btn-danger btn-sm d-block mx-auto button-text shadow rounded button-small-glossy position-relative"  > 
-                  <a class="" rel="nofollow" href="<?php echo $bookerID_link; ?>" target="_blank">Εγγραφή <span class="arrows"><i class="fas fa-angle-double-right"></i></span>
-                    <?= $atts['cta'] ?>
+                  <a class="" rel="nofollow" href="<?php echo $bookerID_link; ?>" target="_blank"><?= $atts['cta'] ?> <span class="arrows"><i class="fas fa-angle-double-right"></i></span>
+                    
                     <?php
                     if (empty($terms)) {
                       echo regulator($valid_data[$key]["ID"]);

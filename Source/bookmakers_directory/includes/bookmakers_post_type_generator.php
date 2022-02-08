@@ -33,19 +33,19 @@ function adminHTML()
 
             <div class=" form-group col-3">
                 <label for="title_short" class="lead"><strong>Title</strong></label>
-                <input class="form-control " type="text" name="title_short" data-attribute="title" id="title">
+                <input class="form-control " type="text" name="title_short" data-attribute="title" id="title" placeholder="Επιθυμητός Τίτλος">
             </div>
 
             <div class="form-group col-1">
                 <label for="limit_short" class="h5">Limit</label>
-                <input class="form-control " id="limit" type="text" name="limit_short" data-attribute="limit">
+                <input class="form-control " id="limit" type="text" name="limit_short" data-attribute="limit" placeholder="Όριο">
             </div>
 
             <div class="form-group col-1  ">
                 <label for="cta" class="h5">Ctas</label>
                 <select name="cta" class="form-select" id="cta" data-attribute="cta">
-                    <option disabled selected>Κάνε μια επιλογή</option>
-                    <option value="Παίξε Νόμιμα">Παίξε Νόμιμα</option>
+                    <option disabled >Κάνε μια επιλογή</option>
+                    <option selected value="Παίξε Νόμιμα">Παίξε Νόμιμα</option>
                     <option value="Εγγραφή">Εγγραφή</option>
                 </select>
             </div>
@@ -53,8 +53,8 @@ function adminHTML()
             <div class="form-group col-1  ">
                 <label for="layout" class="h5">Layouts</label>
                 <select name="layout" class="form-select" id="layout" data-attribute="layout">
-                    <option disabled selected>Κάνε μια επιλογή</option>
-                    <option value="sidebar">Sidebar</option>
+                    <option disabled >Κάνε μια επιλογή</option>
+                    <option selected value="sidebar">Sidebar</option>
                     <option value="card-layout">Κάρτες 4αδες</option>
                 </select>
             </div>
@@ -65,8 +65,8 @@ function adminHTML()
                 <label for="sort_by" class="h5">Sort By</label>
                 <select name="sort_by" id="sort_by" class="form-select" data-attribute="sort_by">
 
-                    <option disabled selected>Επιλογή συγκεκριμένης βαθμολογίας</option>
-                    <option value="bk_final_score">Επιλογή Συνολικής Βαθμολογίας</option>
+                    <option disabled >Επιλογή συγκεκριμένης βαθμολογίας</option>
+                    <option selected value="bk_final_score">Επιλογή Συνολικής Βαθμολογίας</option>
                     <option value="bk_cs1">Αγορές</option>
                     <option value="bk_cs2">Αποδόσεις</option>
                     <option value="bk_cs3">Mobile</option>
@@ -79,16 +79,16 @@ function adminHTML()
 
                 <select name="order_by" id="order_by" class="form-select">
                     <option disabled selected>Κάνε μια επιλογή</option>
-                    <option value="ASC">ASC</option>
+                    <option selected value="ASC">ASC</option>
                     <option value="DESC">DESC</option>
                 </select>
             </div>
 
             <div class="form-group col-6  ">
                 <label for="sorting_id" class="h5">Sorting by ID</label>
-                <input type="checkbox" id="sorting_id" name="sorting_id" data-toggle="collapse" data-target="#demo" value="">
+                <input type="checkbox" id="sorting_id" name="sorting_id" data-toggle="collapse" data-target="#collapse_panel" value="">
 
-                <div id="demo" class="collapse mt-6">
+                <div id="collapse_panel" class="collapse mt-6">
 
                     <ul id="sortlist" data-attribute="sorting_id" style="list-style-type: none; margin: 0; padding: 0; width: 60%;">
                         <?php

@@ -66,19 +66,19 @@ function arrays_data($data,$search_item){
 
 function sorted_bookmakers($data, $type){
 
-    if($type == "ASC"){
+    // if($type == "ASC"){
 
-        $final_score = arrays_data($data,"bk_final_score");
-        asort($final_score);
-        return $final_score;
+    //     $final_score = arrays_data($data,"bk_final_score");
+    //     asort($final_score);
+    //     return $final_score;
 
-    }elseif($type == "DESC"){
+    // }elseif($type == "DESC"){
 
-        $final_score = arrays_data($data,"bk_final_score");
-        arsort($final_score);
-        return $final_score;
-    }
-    else{
+    //     $final_score = arrays_data($data,"bk_final_score");
+    //     arsort($final_score);
+    //     return $final_score;
+    // }
+    // else{
 
       $type_before = strstr($type,' ',true);
       $type_after = trim(strstr($type,' ',false));
@@ -140,6 +140,7 @@ function sorted_bookmakers($data, $type){
             default:
 
             $final_score = arrays_data($data,"bk_final_score");
+            asort($final_score);
             return $final_score;
         }
         
@@ -199,6 +200,7 @@ function sorted_bookmakers($data, $type){
             default:
 
                 $final_score = arrays_data($data,"bk_final_score");
+                arsort($final_score);
                 return $final_score;
         }
        
@@ -208,7 +210,7 @@ function sorted_bookmakers($data, $type){
             return $final_score;
       }
     }
-}
+//}
        
 
 

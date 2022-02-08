@@ -40,31 +40,24 @@
 
                 if ( (document.getElementById("sorting_id").checked)){
                     mVal = '';
-                    x = false;
-                    $count = 0;
+                    count = 0 ;
                     if (jQuery('#limit').val() > 0 ){
-                    
-                    do{
-                        $count++;
-                        
+                            
                         jQuery('#sortlist').find('li').each(function(){
-                            if($count <= jQuery('#limit').val()){
                         //alert (jQuery(this).text());
                             jQuery(this).attr('data-id');
                             mVal += jQuery(this).attr('data-id') + ', ';
-                            }else{
-                                
-                              return  x = true;
-
+                            count++;
+                            if(count == jQuery('#limit').val()){
+                                return false;
                             }
-                            });
-                        
-                    }while( x == false)
+                        });
+                          
                     }else{
                         jQuery('#sortlist').find('li').each(function(){
                             //alert (jQuery(this).text());
-                                jQuery(this).attr('data-id');
-                                mVal += jQuery(this).attr('data-id') + ', ';
+                            jQuery(this).attr('data-id');
+                            mVal += jQuery(this).attr('data-id') + ', ';
                         });
                     }
                     mVal = mVal.substring(0, mVal.length - 2);
