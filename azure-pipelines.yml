@@ -15,8 +15,14 @@ steps:
     command: 'install'
     workingDir: './'
 
-- script: webpack --mode=production --config webpack.config.js
-  displayName: Build assets proccess
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: './'
+    customCommand: 'run build'
+
+# - script: webpack --mode=production --config webpack.config.js
+#   displayName: Build assets proccess
 
 - task: CopyFiles@2
   inputs:
