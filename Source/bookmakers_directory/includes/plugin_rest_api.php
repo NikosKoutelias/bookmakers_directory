@@ -1,15 +1,15 @@
 <?php
 
 //The Following registers an api route with multiple parameters. 
-add_action('rest_api_init', 'add_bookmakers_api');
-function add_bookmakers_api()
+add_action('rest_api_init', 'add_bookmakers_bd_api');
+function add_bookmakers_bd_api()
 {
     register_rest_route('customroutes', '/bookmakersdata', array(
         'methods' => 'GET',
-        'callback' => 'get_bookmakers_data',
+        'callback' => 'get_bookmakers_bd_data',
     ));
 }
-function get_bookmakers_data($data)
+function get_bookmakers_bd_data($data)
 {
     //get users by market
     $args = [
