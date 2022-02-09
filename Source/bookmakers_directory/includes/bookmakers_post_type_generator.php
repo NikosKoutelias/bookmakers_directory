@@ -44,7 +44,7 @@ function adminHTML()
             <div class="form-group col-1  ">
                 <label for="cta" class="h5">Ctas</label>
                 <select name="cta" class="form-select" id="cta" data-attribute="cta">
-                    <option disabled >Κάνε μια επιλογή</option>
+                    <option disabled>Κάνε μια επιλογή</option>
                     <option selected value="Παίξε Νόμιμα">Παίξε Νόμιμα</option>
                     <option value="Εγγραφή">Εγγραφή</option>
                 </select>
@@ -53,7 +53,7 @@ function adminHTML()
             <div class="form-group col-1  ">
                 <label for="layout" class="h5">Layouts</label>
                 <select name="layout" class="form-select" id="layout" data-attribute="layout">
-                    <option disabled >Κάνε μια επιλογή</option>
+                    <option disabled>Κάνε μια επιλογή</option>
                     <option selected value="sidebar">Sidebar</option>
                     <option value="card-layout">Κάρτες 4αδες</option>
                 </select>
@@ -65,7 +65,7 @@ function adminHTML()
                 <label for="sort_by" class="h5">Sort By</label>
                 <select name="sort_by" id="sort_by" class="form-select" data-attribute="sort_by">
 
-                    <option disabled >Επιλογή συγκεκριμένης βαθμολογίας</option>
+                    <option disabled>Επιλογή συγκεκριμένης βαθμολογίας</option>
                     <option selected value="bk_final_score">Επιλογή Συνολικής Βαθμολογίας</option>
                     <option value="bk_cs1">Αγορές</option>
                     <option value="bk_cs2">Αποδόσεις</option>
@@ -95,7 +95,7 @@ function adminHTML()
                         foreach ($validate_data as $key => $row) {
 
                         ?>
-                           
+
                             <li class="ui-state-default " data-id="<?php echo $row["ID"] ?>"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
                                 <?php
 
@@ -115,4 +115,3 @@ function adminHTML()
 
 <?php
 }
-?>

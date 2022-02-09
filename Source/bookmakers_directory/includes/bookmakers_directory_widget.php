@@ -38,10 +38,10 @@ class Bookmakers_directory_bd extends WP_Widget
 	 * @param array $instance Saved values from database.
 	 */
 	public function widget($args, $instance)
-	{ 
-				
-		add_filter( 'widget_text', 'do_shortcode' );
-		If ( ! empty ( $title ) ){
+	{
+
+		add_filter('widget_text', 'do_shortcode');
+		if (!empty($title)) {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 		//add_filter( 'widget_text', 'do_shortcode' );
@@ -49,9 +49,6 @@ class Bookmakers_directory_bd extends WP_Widget
 		$output_text = do_shortcode($instance['txt']);
 
 		echo $output_text;
-
-
-		
 	}
 
 	/**
@@ -64,18 +61,18 @@ class Bookmakers_directory_bd extends WP_Widget
 	public function form($instance)
 	{
 
-		if (isset($instance['txt'])){
+		if (isset($instance['txt'])) {
 			$txt = $instance['txt'];
-		}else{
+		} else {
 			$txt = "";
 		}
-		?>
+?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'txt' ); ?>"><?php echo "Text" ?></label>
+			<label for="<?php echo $this->get_field_id('txt'); ?>"><?php echo "Text" ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('txt'); ?>" name="<?php echo $this->get_field_name('txt'); ?>" type="text" value="<?php echo esc_attr($txt); ?>" />
 		</p>
 
-		<?php
+<?php
 	}
 	/**
 	 * Sanitize widget form values as they are saved.
@@ -91,9 +88,8 @@ class Bookmakers_directory_bd extends WP_Widget
 	{
 		$instance = array();
 
-		$instance['txt'] = ( ! empty( $new_instance['txt'] ) ) ? strip_tags( $new_instance['txt'] ) : '';
+		$instance['txt'] = (!empty($new_instance['txt'])) ? strip_tags($new_instance['txt']) : '';
 
 		return $instance;
 	}
 }
-?>

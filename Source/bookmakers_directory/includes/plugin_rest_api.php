@@ -23,7 +23,3 @@ function bd_get_bookmakers_data($data)
     }
     return $bookmakers;
 }
-
-
-
-?>
