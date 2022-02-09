@@ -1,3 +1,2 @@
-
 import "./app.scss";
-import 'bootstrap';
+import "bootstrap";

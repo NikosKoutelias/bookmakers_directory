@@ -71,7 +71,7 @@ function bd_bookmakers_directory_short($atts)
           $color = $valid_data[$key]["meta"]["book_color"][0];
           $title = $valid_data[$key]["post_title"];
         ?>
-          <div class="col-md-3 p-0 m-sm-1 m-lg-2 mb-2 d-flex flex-column rounded-lg shadow-box" style="background-color: <?= $color; ?>; overflow:hidden; max-width:200px;">
+          <div class="col-md-3 col-lg-3 col-6 p-0 m-sm-1 m-lg-2 mb-2 d-flex flex-column rounded-lg shadow-box" style="background-color: <?= $color; ?>; overflow:hidden; max-width:200px;">
             <div class=" d-flex w-100 flex-column">
               <div class="heading-text" style="z-index:2;">
                 <?php
@@ -107,7 +107,7 @@ function bd_bookmakers_directory_short($atts)
               </div>
             </div>
             <div class="m-0 d-flex flex-column justify-content-center">
-              <button class="btn my-2 d-block button-text-large button-large-glossy position-relative align-self-center" style="">
+              <button class="btn my-2 d-block button-text-large button-large-glossy position-relative align-self-center">
                 <a style="color:white!important;" rel="nofollow" href="<?php echo $bookerID_link; ?>" target="_blank">
                   <?= $atts['cta'] ?>
                   <?php

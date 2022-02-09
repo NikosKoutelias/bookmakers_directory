@@ -1,19 +1,11 @@
 <?php
 
-
-
 add_action('admin_menu', 'adminPage');
-
-
 
 function adminPage()
 {
-
-
-
     add_menu_page('Bookmakers Shortcode Generator', 'Bookmakers Shortcode', 'manage_options', 'shortcode_generator', 'adminHTML');
 }
-
 
 function adminHTML()
 {
