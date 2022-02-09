@@ -1,5 +1,6 @@
 node_modules 
-assets/dist
+Source/bookmakers_directory/dist
+Source/bookmakers_directory/dist/**
 assets/src/index.js
-functions.php
 .vscode
+package-lock.json
