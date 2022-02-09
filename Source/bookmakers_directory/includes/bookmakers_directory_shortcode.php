@@ -3,7 +3,7 @@
 
 
 
-function bookmakers_directory_short($atts)
+function bd_bookmakers_directory_short($atts)
 {
   $atts = shortcode_atts(
     array(
@@ -44,30 +44,9 @@ function bookmakers_directory_short($atts)
   }else{
     $valid_data = valid($data);
   }
- // unset($data);
-  // echo $data[0]["meta"]["bookmakers_custom_meta_hidden"][0];
-  // die();
-  // echo "<pre>";
-  //   print_r($data);
-  //   echo "</pre>";
-  //   die();
 
-  // $allbookers = ShortcodeFilters::returnBookies($atts);
-
-
-    // switch ($atts['sort_by']) {
-    //   case "ASC":
-    //     $scores = sorted_bookmakers($valid_data,"ASC");
-    //     break;
-    //   case "DESC":
-    //     $scores  = sorted_bookmakers($valid_data,"DESC");
-    //     break;
-    //   default:
-        $scores  = sorted_bookmakers($valid_data, $atts['sort_by']);
-    //}
-
-    
-
+   $scores  = sorted_bookmakers($valid_data, $atts['sort_by']);
+  
   if ('card-layout' == $atts['layout']) {
 ?>
   <h3 style="text-align: justify;"> <?php echo $atts['title'] ?></h3>
@@ -79,13 +58,9 @@ function bookmakers_directory_short($atts)
       <div class="d-flex flex-wrap w-100 justify-content-center">
         <?php
         $counter = 0;
-        //foreach ($allbookers['books'] as $bookerID) {
 
         foreach ($scores as $key => $score){
 
-          // if($data[$key]["meta"]["bookmakers_custom_meta_hidden"][0] == "on"){
-          //   continue;
-          // }
           if($atts['limit'] <>"" && $counter > $atts['limit']-1){
             break;
           }
@@ -165,7 +140,6 @@ function bookmakers_directory_short($atts)
 
   } elseif ('sidebar' == $atts['layout']) {
     
-    // $sorted_top_scores =  top_sorted($bookerID['books']);
     echo "<br>";
   ?>
     
@@ -256,4 +230,4 @@ function bookmakers_directory_short($atts)
 
   return $output;
 }
-add_shortcode('bookmakers_directory_short', 'bookmakers_directory_short');
+add_shortcode('bookmakers_directory_short', 'bd_bookmakers_directory_short');

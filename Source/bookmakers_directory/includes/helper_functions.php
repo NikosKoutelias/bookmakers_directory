@@ -4,11 +4,11 @@
 
 function rest_data(){
 
-    $url = site_url() . '/wp-json/customroutes/bookmakersdata';
+    $url = site_url() . '/wp-json/customroutes/bookmakersdirectorydata';
     $response = wp_remote_get($url);
 
     return json_decode(wp_remote_retrieve_body($response),true);
-    }   
+}   
 
 
 function valid($data, $names = ""){
@@ -47,21 +47,6 @@ function arrays_data($data,$search_item){
     }
     return $arr;
 }
-
-// function search($data, $names){
-//     $namesarr = explode(" ",$names);
-//     $count = count($namesarr);
-
-//     foreach($data as $key => $row){
-//         for ($i=0; $i < $count; $i++){
-//             if($namesarr[$i] == $row["post_title"]){
-
-//                 $picked[$key] = $row["meta"]["bk_final_score"][0];
-//             }
-//         }
-//     }
-//     return $namesarr;
-// }
 
 
 function sorted_bookmakers($data, $type){
@@ -209,9 +194,6 @@ function sorted_bookmakers($data, $type){
             $final_score = arrays_data($data,"bk_final_score");
             return $final_score;
       }
-    }
-//}
-       
-
+    }     
 
   ?>

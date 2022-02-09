@@ -5,13 +5,14 @@ if (!defined('ABSPATH'))
 	die('-1');
 
 add_action('widgets_init', function () {
-	register_widget('Bookmakers_directory');
+	register_widget('Bookmakers_directory_bd');
 });
 
 /**
  * Adds My_Widget widget.
  */
-class Bookmakers_directory extends WP_Widget
+
+class Bookmakers_directory_bd extends WP_Widget
 {
 	/**
 	 * Register widget with WordPress.
