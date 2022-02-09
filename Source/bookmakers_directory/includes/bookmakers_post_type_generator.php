@@ -23,7 +23,7 @@ function adminHTML()
 ?>
 
     <div class="flex-wrap col-12 all_meta">
-        <h1>Plug Settings</h1>
+        <h1>Bookmakers Generator</h1>
         <form action="" method="">
 
             <div class=" form-group col-8">
