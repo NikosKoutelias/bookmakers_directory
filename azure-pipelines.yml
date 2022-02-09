@@ -1,0 +1,67 @@
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+  majorVersion: '1'
+  minorVersion: '0'
+
+name: '$(majorVersion).$(minorVersion).$(Build.BuildId)'
+
+steps:
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: './'
+
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: './'
+    customCommand: 'run build'
+
+# - script: webpack --mode=production --config webpack.config.js
+#   displayName: Build assets proccess
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'Source'
+    Contents: 'bookmakers_directory/**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/bookmakers_directory'
+    CleanTargetFolder: true
+    OverWrite: true
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/bookmakers_directory'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/compressed/bookmakers_directory.zip'
+    replaceExistingArchive: true
+
+- task: UniversalPackages@0
+  inputs:
+    command: 'publish'
+    publishDirectory: '$(Build.ArtifactStagingDirectory)/compressed'
+    feedsToUsePublish: 'internal'
+    vstsFeedPublish: '96855137-a028-485a-aed0-913d2449e5a8'
+    vstsFeedPackagePublish: 'bookmakers_directory'
+    versionOption: 'custom'
+    versionPublish: '$(majorVersion).$(minorVersion).$(Build.BuildId)'
+    verbosity: 'Information'
+
+# - task: CopyFiles@2
+#   inputs:
+#     SourceFolder: 'Source'
+#     Contents: 'deploy-scripts/**'
+#     TargetFolder: '$(Build.ArtifactStagingDirectory)/deploy-scripts'
+#     CleanTargetFolder: true
+#     OverWrite: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    # PathtoPublish: '$(Agent.WorkFolder)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'bookmakers_directory-artifacts'
+    publishLocation: 'Container'
