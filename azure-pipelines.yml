@@ -51,13 +51,13 @@ steps:
     versionPublish: '$(majorVersion).$(minorVersion).$(Build.BuildId)'
     verbosity: 'Information'
 
-# - task: CopyFiles@2
-#   inputs:
-#     SourceFolder: 'Source'
-#     Contents: 'deploy-scripts/**'
-#     TargetFolder: '$(Build.ArtifactStagingDirectory)/deploy-scripts'
-#     CleanTargetFolder: true
-#     OverWrite: true
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'Source'
+    Contents: 'deploy_plugin.ps1'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/deploy-scripts'
+    CleanTargetFolder: true
+    OverWrite: true
 
 - task: PublishBuildArtifacts@1
   inputs:
