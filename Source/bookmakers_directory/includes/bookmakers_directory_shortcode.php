@@ -23,7 +23,7 @@ function bd_bookmakers_directory_short($atts)
     $atts,
     'table'
   );
-
+  $start_time = microtime(true);
   ob_start();
 
   wp_enqueue_style('custom_CSS');
@@ -226,7 +226,8 @@ function bd_bookmakers_directory_short($atts)
   }
   $output = ob_get_contents();
   ob_end_clean();
-
+  $end_time = microtime(true);
+  echo $end_time - $start_time;
   return $output;
 }
 add_shortcode('bookmakers_directory_short', 'bd_bookmakers_directory_short');
