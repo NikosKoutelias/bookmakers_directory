@@ -53,7 +53,7 @@ function bd_bookmakers_directory_short($atts)
 
     </p>
 
-    <div class="container-fluid p-0">
+    <div class="container-fluid bookmakers_directory p-0">
       <div class="d-flex flex-wrap w-100 justify-content-center">
         <?php
         $counter = 0;
@@ -71,9 +71,9 @@ function bd_bookmakers_directory_short($atts)
           $color = $valid_data[$key]["meta"]["book_color"][0];
           $title = $valid_data[$key]["post_title"];
         ?>
-          <div class="col-md-3 col-lg-3 col-6 p-0 m-sm-1 m-lg-2 mb-2 d-flex flex-column rounded-lg shadow-box" style="background-color: <?= $color; ?>; overflow:hidden; max-width:200px;">
+          <div class="d-flex flex-column rounded-lg shadow-box cards_width" style="background-color: <?= $color; ?>; overflow:hidden;">
             <div class=" d-flex w-100 flex-column">
-              <div class="heading-text" style="z-index:2;">
+              <div class="heading-text" style="z-index:2; ">
                 <?php
                 if ($counter >= 9) {
                 ?>
@@ -87,7 +87,7 @@ function bd_bookmakers_directory_short($atts)
                 ?>
               </div>
 
-              <div class=" d-flex justify-content-center bookmenu ">
+              <div class=" d-flex justify-content-center bookmenu " style="position: relative;">
                 <a class="" href="<?= get_the_permalink($valid_data[$key]["ID"]); ?>" target="_blank">
                   <div class="image-control mt-3 spritesimg <?php echo str_replace(" ", "", substr(str_replace("live", "", strtolower($title)), 0)); ?>">
                   </div>

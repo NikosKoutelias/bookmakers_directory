@@ -6,7 +6,7 @@ jQuery(function () {
   });
 
   updateCustomShortcode = function () {
-    let attrs = "";
+    let attrs = " ";
     jQuery("#layout").each(function () {
       if (jQuery(this).val() != "")
         attrs =
@@ -22,7 +22,7 @@ jQuery(function () {
       if (jQuery(this).val() != "")
         attrs =
           attrs +
-          "" +
+          " " +
           jQuery(this).attr("data-attribute") +
           '="' +
           jQuery(this).val() +
@@ -33,7 +33,7 @@ jQuery(function () {
       if (jQuery(this).val() != "")
         attrs =
           attrs +
-          "" +
+          " " +
           jQuery(this).attr("data-attribute") +
           '="' +
           jQuery(this).val() +
@@ -44,7 +44,7 @@ jQuery(function () {
       if (jQuery(this).val() != "")
         attrs =
           attrs +
-          "" +
+          " " +
           jQuery(this).attr("data-attribute") +
           '="' +
           jQuery(this).val() +
@@ -55,11 +55,11 @@ jQuery(function () {
       if (jQuery(this).val() != "" && jQuery("#sort_by").val() != "") {
         attrs =
           attrs +
-          "" +
+          " " +
           jQuery("#sort_by").attr("data-attribute") +
           '="' +
           jQuery(this).val() +
-          "" +
+          " " +
           jQuery("#sort_by").val() +
           '"';
       } else if (jQuery(this).val() != "" && jQuery("#sort_by").val() == "") {
@@ -73,7 +73,7 @@ jQuery(function () {
       } else {
         attrs =
           attrs +
-          "" +
+          " " +
           jQuery("#sort_by").attr("data-attribute") +
           '="' +
           jQuery("#sort_by").val() +
