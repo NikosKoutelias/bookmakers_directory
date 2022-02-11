@@ -224,8 +224,8 @@ function bd_bookmakers_directory_short($atts)
 <?php
 
   }
-  $output = ob_get_contents();
-  ob_end_clean();
+
+  $output = ob_get_clean();
   $end_time = microtime(true);
   echo $end_time - $start_time;
   return $output;

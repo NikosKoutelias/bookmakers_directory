@@ -1,14 +1,22 @@
 <?php
 
-
+// Fetch bookmakers object and cache it
 
 function rest_data()
 {
+    $memcache_obj = new Memcache;
+    $memcache_obj->connect('localhost', 11211);
+
+    $memcache_resp = $memcache_obj->get('bd_bookmakers');
 
     $url = site_url() . '/wp-json/customroutes/bookmakersdirectorydata';
-    $response = wp_remote_get($url);
+    if (!$memcache_resp) {
+        $response = wp_remote_get($url);
+        $data = json_decode(wp_remote_retrieve_body($response), true);
+        $memcache_resp = $memcache_obj->set('bd_bookmakers', $data, MEMCACHE_COMPRESSED, (60 * 60 * 24));
+    }
 
-    return json_decode(wp_remote_retrieve_body($response), true);
+    return $memcache_resp;
 }
 
 
@@ -54,21 +62,6 @@ function arrays_data($data, $search_item)
 
 function sorted_bookmakers($data, $type)
 {
-
-    // if($type == "ASC"){
-
-    //     $final_score = arrays_data($data,"bk_final_score");
-    //     asort($final_score);
-    //     return $final_score;
-
-    // }elseif($type == "DESC"){
-
-    //     $final_score = arrays_data($data,"bk_final_score");
-    //     arsort($final_score);
-    //     return $final_score;
-    // }
-    // else{
-
     $type_before = strstr($type, ' ', true);
     $type_after = trim(strstr($type, ' ', false));
 

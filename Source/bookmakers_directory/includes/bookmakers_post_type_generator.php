@@ -11,7 +11,8 @@ function adminHTML()
 {
     $data = rest_data();
     $validate_data = valid($data);
-    unset($data)
+    unset($data);
+
 ?>
 
     <div class="flex-wrap col-12 all_meta">
