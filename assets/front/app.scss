@@ -88,12 +88,23 @@
     box-shadow: 0 1px 5px #000; 
 }
 
-@media screen and  (max-width: 414px){
+@media screen and (max-width: 389px){
+    .image-control{
+        position:absolute;
+        top:-8px;
+        left:59px; 
+        transform: scale(3.0);
+        
+    }
+
+}
+
+@media screen and (min-width: 390px) and (max-width: 414px){
     .image-control{
         position:absolute;
         top:-10px;
-        left:103px; 
-        transform: scale(4.5);
+        left:66px; 
+        transform: scale(3.2);
         
     }
 
@@ -102,9 +113,9 @@
 @media screen and (min-width: 415px) and (max-width: 469px){
     .image-control{
         position:absolute;
-        top:-5px;
-        left:122px; 
-        transform: scale(5.1);
+        top:-15px;
+        left:79px; 
+        transform: scale(3.7);
         
     }
 
@@ -113,9 +124,9 @@
 @media screen and (min-width: 470px) and (max-width: 510px){
     .image-control{
         position:absolute;
-        top:-5px;
-        left:137px; 
-        transform: scale(5.58);
+        top:-15px;
+        left:89px; 
+        transform: scale(4);
         
     }
 }
@@ -133,9 +144,9 @@
 @media screen and (min-width: 547px) and (max-width: 767px){
     .image-control{
         position:absolute;
-        top:-6px;
-        left:65px; 
-        transform: scale(3.50);
+        top:-7px;
+        left:68px; 
+        transform: scale(3.30);
     }
 
 }
@@ -144,8 +155,8 @@
     .image-control{
         position:absolute;
         top:-4px;
-        left:90px; 
-        transform: scale(4.1);
+        left:94px; 
+        transform: scale(4.16);
     }
 }
 
@@ -385,32 +396,19 @@
     animation-delay: 3s!important;
 }
 
-@media screen and  (max-width: 510px) {
+
+
+@media screen and (max-width: 510px) {
     .bookmakers_directory .cards_width{
-        width: 70%;
-        margin: 10px;
+        width: 50%;
+        margin: 5px;
 
     }
 }
-@media screen and (min-width: 511px) and (max-width: 546px) {
+@media screen and (min-width: 511px) and (max-width: 991px) {
     .bookmakers_directory .cards_width{
         width: 36%;
         margin: 10px;
-    }
-}
-
-@media screen and (min-width: 547px) and (max-width: 767px) {
-    .bookmakers_directory .cards_width{
-        width: 36%;
-        margin: 10px;
-    }
-}
-
-@media screen and (min-width: 768px) and (max-width: 991px){
-    .bookmakers_directory .cards_width{
-        width: 35%;
-        margin: 20px;
-    
     }
 }
 
