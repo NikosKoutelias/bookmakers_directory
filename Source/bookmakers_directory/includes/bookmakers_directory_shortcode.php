@@ -23,7 +23,7 @@ function bd_bookmakers_directory_short($atts)
     $atts,
     'table'
   );
-  $start_time = microtime(true);
+
   ob_start();
 
   wp_enqueue_style('custom_CSS');
@@ -47,12 +47,13 @@ function bd_bookmakers_directory_short($atts)
   $scores  = sorted_bookmakers($valid_data, $atts['sort_by']);
 
   if ('card-layout' == $atts['layout']) {
+
+    if ($atts['title'] != "") {
 ?>
-    <h3 style="text-align: justify;"> <?php echo $atts['title'] ?></h3>
-    <p>
-
-    </p>
-
+      <h3 style="text-align: justify;"> <?php echo $atts['title'] ?></h3>
+    <?php
+    }
+    ?>
     <div class="container-fluid bookmakers_directory p-0">
       <div class="d-flex flex-wrap w-100 justify-content-center">
         <?php
@@ -71,6 +72,7 @@ function bd_bookmakers_directory_short($atts)
           $color = $valid_data[$key]["meta"]["book_color"][0];
           $title = $valid_data[$key]["post_title"];
         ?>
+
           <div class="d-flex flex-column rounded-lg shadow-box cards_width" style="background-color: <?= $color; ?>; overflow:hidden;">
             <div class=" d-flex w-100 flex-column">
               <div class="heading-text" style="z-index:2; ">
@@ -226,8 +228,7 @@ function bd_bookmakers_directory_short($atts)
   }
 
   $output = ob_get_clean();
-  $end_time = microtime(true);
-  echo $end_time - $start_time;
+
   return $output;
 }
 add_shortcode('bookmakers_directory_short', 'bd_bookmakers_directory_short');
