@@ -14,6 +14,7 @@ function rest_data()
         $response = wp_remote_get($url);
         $data = json_decode(wp_remote_retrieve_body($response), true);
         $memcache_resp = $memcache_obj->set('bd_bookmakers', $data, MEMCACHE_COMPRESSED, (60 * 60 * 24));
+        $memcache_resp = $memcache_obj->get('bd_bookmakers');
     }
 
     return $memcache_resp;
