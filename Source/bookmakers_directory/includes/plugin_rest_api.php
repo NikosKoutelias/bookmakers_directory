@@ -4,7 +4,7 @@
 add_action('rest_api_init', 'bd_add_bookmakers_api');
 function bd_add_bookmakers_api()
 {
-    register_rest_route('customroutes', '/bookmakersdirectorydata', array(
+    register_rest_route('bookmakersdirectory', '/data', array(
         'methods' => WP_REST_SERVER::READABLE,
         'callback' => 'bd_get_bookmakers_data',
     ));

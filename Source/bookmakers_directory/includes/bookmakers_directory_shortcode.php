@@ -12,13 +12,7 @@ function bd_bookmakers_directory_short($atts)
       'sort_by' => '', // (ASC, DESC) "meta_key"
       'cta' => '',
       'sorting_id' => '', // id = 1,2,3 TOP 3
-      // 'pay_in' => '',
-      // 'pay_out' => '',
-      // 'ids' => '',
-      // 'download' => '',
-      // 'mobile' => '',
-      // 'legal' => '',
-      //'offset' => '',
+
     ),
     $atts,
     'table'
@@ -55,7 +49,11 @@ function bd_bookmakers_directory_short($atts)
       <?php
       }
       ?>
-      <div class="container-fluid bookmakers_directory p-0">
+
+
+
+
+      <div id="builder" class="container-fluid bookmakers_directory p-0">
         <div class="d-flex flex-wrap w-100 justify-content-center">
           <?php
           $counter = 0;
@@ -72,9 +70,11 @@ function bd_bookmakers_directory_short($atts)
             $score = floatval($valid_data[$key]["meta"]["bk_final_score"][0]);
             $color = $valid_data[$key]["meta"]["book_color"][0];
             $title = $valid_data[$key]["post_title"];
+            $image =  $valid_data[$key]["meta"]["bookmakers_custom_meta_sidebar_icon"][0];
+
           ?>
 
-            <div class="d-flex flex-column rounded-lg shadow-box cards_width" style="background-color: <?= $color; ?>; overflow:hidden;">
+            <div id="cards" class="d-flex flex-column bookmakers_rounded bookmakers_shadow-box cards_width" style="background-color: <?php echo $color; ?>; overflow:hidden;">
               <div class=" d-flex w-100 flex-column">
                 <div class="heading-text" style="z-index:2; ">
                   <?php
@@ -90,27 +90,34 @@ function bd_bookmakers_directory_short($atts)
                   ?>
                 </div>
 
-                <div class=" d-flex justify-content-center bookmenu " style="position: relative;">
+                <div class="d-block bookmakers_my-3"></div>
+                <div class=" d-flex justify-content-center">
                   <a class="" href="<?php echo esc_attr($bookerID_link); ?>" target="_blank">
-                    <div class="image-control mt-3 spritesimg <?php echo str_replace(" ", "", substr(str_replace("live", "", strtolower($title)), 0)); ?>">
+                    <div class="mt-3">
+                      <img class="bookmakers_img-fluid" src="<?php echo $image; ?>" alt="">
                     </div>
                   </a>
                 </div>
 
-                <div class="my-5 d-block mt-0 ">
+                <div class=" d-block">
                 </div>
 
                 <div class="d-block text-center" style="z-index:2; background-color: <?= $color; ?>">
                   <span class=" d-none d-md-block"><a class="stoiximatikes-link-layout" href="<?php echo esc_attr($bookerID_link); ?>" target="_blank"><?php echo esc_attr(str_replace("Live", "gr", $title)) ?></a></span>
                   <div class="d-block ">
                     <div class=" d-flex justify-content-center align-self-center align-middle">
-                      <?php echo  $stars = userVotes::drawStarsDefault($score / 2, 20) ?>
+
+                      <?php
+
+                      echo  $stars = userVotes::drawStarsDefault($score / 2, 20);
+                      ?>
+
                     </div>
                   </div>
                 </div>
               </div>
               <div class="m-0 d-flex flex-column justify-content-center">
-                <button class="btn my-2 d-block button-text-large button-large-glossy position-relative align-self-center">
+                <button class="btn bookmakers_my-2 d-block button-text-large button-large-glossy position-relative align-self-center">
                   <a style="color:white!important;" rel="nofollow" href="<?php echo esc_attr($bookerID_link); ?>" target="_blank">
                     <?= $atts['cta'] ?>
                     <?php
@@ -166,6 +173,7 @@ function bd_bookmakers_directory_short($atts)
           $bookerID_link = $valid_data[$key]["meta"]["affiliate_url_for_cta"][0];
           $color = $valid_data[$key]["meta"]["book_color"][0];
           $title = $valid_data[$key]["post_title"];
+          $image =  $valid_data[$key]["meta"]["bookmakers_custom_meta_sidebar_icon"][0];
 
         ?>
 
@@ -173,7 +181,8 @@ function bd_bookmakers_directory_short($atts)
             <div class=" m-0 pb-2 ">
               <div class="col-md-4 mt-5 pt-5 pb-2 bookmenu align-items-center">
                 <a href="<?php echo $bookerID_link; ?>">
-                  <div class="shadow spritesimg mt-3 <?php echo str_replace(" ", "", substr(str_replace("live", "", strtolower($title)), 0)); ?>" style=" transform: scale(1.20);">
+                  <div class="mt-3 bookmakers_p-3" style="background-color: <?php echo $color ?>;">
+                    <img class="bookmakers_img-fluid" src="<?php echo $image; ?>" alt="">
                   </div>
                 </a>
               </div>
