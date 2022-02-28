@@ -93,7 +93,7 @@ function bd_bookmakers_directory_short($atts)
                 <div class="d-block bookmakers_my-3"></div>
                 <div class=" d-flex justify-content-center">
                   <a class="" href="<?php echo esc_attr($bookerID_link); ?>" target="_blank">
-                    <div class="mt-3">
+                    <div class="bookmakers_mt-3">
                       <img class="bookmakers_img-fluid" src="<?php echo $image; ?>" alt="">
                     </div>
                   </a>

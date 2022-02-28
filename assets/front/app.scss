@@ -1,6 +1,5 @@
 // @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 
-
 .stripted-blue-row:nth-child(odd){
     background: #385e8e52;
 }
@@ -36,26 +35,30 @@
     box-shadow: 0 1px 5px #000; 
 }
 
+.bookmakers_mt-3{
+    margin-top: 10px !important;
+}
+
 .bookmakers_rounded{
-    border-radius: 1.1rem;
+    border-radius: 17.6px;
   } 
 
 .bookmakers_p-3{
-padding: 0.313rem;
+padding: 5px;
 }
 
 .bookmakers_m-5{
-    margin: 3rem !important;
+    margin: 32px !important;
 }
 
 .bookmakers_my-2{
-    margin-top: 0.5rem !important;
-    margin-bottom: 0.5rem !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
   }
 
 .bookmakers_my-3 {
-margin-top: 1rem !important;
-margin-bottom: 1rem !important;
+margin-top: 10px !important;
+margin-bottom: 10px !important;
 }
 
 .button-text a{
