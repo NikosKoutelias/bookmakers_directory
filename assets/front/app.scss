@@ -1,42 +1,85 @@
 // @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 
-.stripted-blue-row:nth-child(odd){
+.bookmakers_w-100 {
+  width: 100%;
+}
+
+.bookmakers_w-50 {
+  width: 50%;
+}
+
+.bookmakers_flex-column{
+  flex-direction: column;
+}
+
+.bookmakers_justify-content-between{
+ justify-content: space-between;
+}
+
+.bookmakers_align-self-center{
+  align-self: center;
+}
+
+.bookmakers_w-25 {
+  width: 25%;
+}
+
+.bookmakers_d-flex {
+  display: flex;
+}
+
+.bookmakers_flex-wrap {
+  flex-wrap: wrap;
+}
+
+
+  .stripted-blue-row:nth-child(odd) {
     background: #385e8e52;
-}
-.stripted-blue-row:nth-child(even){
+  }
+  
+  .stripted-blue-row:nth-child(even) {
     background: #f5f5f552;
-}
+  }
+  
 
-.top-border{
+  .bookmakers_img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+
+  .top-border {
     border-top: solid black;
-}
-
-.title-black{
-    background-color: rgb(17, 52, 77);
-    color: rgb(232, 230, 227);
-}
-
-.sidebar-text-design{
+  }
+  
+  .title-black {
+    background-color: #11344d;
+    color: #e8e6e3;
+  }
+  
+  .sidebar-text-design {
     font-weight: 600;
-    font-family: "Roboto",sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 15px;
-}
-
-.stoiximatikes-link{
+  }
+  
+  .stoiximatikes-link {
     line-height: 1.6;
-    font-family: "Roboto",sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 15px;
     text-decoration: none;
     font-weight: 650;
-    color: rgb(249, 67, 46)!important;
-}
-
-.bookmakers_shadow-box{
-    box-shadow: 0 1px 5px #000; 
-}
-
+    color: #f9432e !important;
+  }
+  
+  .shadow-box {
+    -webkit-box-shadow: 0 1px 5px #000;
+            box-shadow: 0 1px 5px #000;
+  }
+  
+  
 .bookmakers_mt-3{
-    margin-top: 10px !important;
+  margin-top: 10px !important;
 }
 
 .bookmakers_rounded{
@@ -49,6 +92,11 @@ padding: 5px;
 
 .bookmakers_m-5{
     margin: 32px !important;
+}
+
+.bookmakers_ml-2{
+
+  margin-left: 5px;
 }
 
 .bookmakers_my-2{
@@ -251,18 +299,28 @@ margin-bottom: 10px !important;
 }
 @media screen and (min-width: 511px) and (max-width: 991px) {
     .bookmakers_directory .cards_width{
-        width: 36%;
+        width: 45%;
         margin: 10px;
         position: relative;
     }
 }
 
-@media screen and (min-width: 992px){
+  @media screen and (min-width: 992px) and (max-width: 1199px){
     .bookmakers_directory .cards_width{
-        width: 23%;
+        width: 30%;
         margin: 10px;
         position: relative;
     }
 
 }
+
+@media screen and (min-width: 1200px){
+    .bookmakers_directory .cards_width{
+        width: 22%;
+        margin: 10px;
+        position: relative;
+    }
+
+}
+  
 

@@ -53,8 +53,8 @@ function bd_bookmakers_directory_short($atts)
 
 
 
-      <div id="builder" class="container-fluid bookmakers_directory p-0">
-        <div class="d-flex flex-wrap w-100 justify-content-center">
+      <div id="builder" class="container-fluid bookmakers_directory p-0 ">
+        <div class="bookmakers_d-flex bookmakers_flex-wrap w-100 justify-content-center">
           <?php
           $counter = 0;
 
@@ -74,8 +74,8 @@ function bd_bookmakers_directory_short($atts)
 
           ?>
 
-            <div id="cards" class="d-flex flex-column bookmakers_rounded bookmakers_shadow-box cards_width" style="background-color: <?php echo $color; ?>; overflow:hidden;">
-              <div class=" d-flex w-100 flex-column">
+            <div id="cards" class="bookmakers_d-flex bookmakers_flex-column bookmakers_rounded bookmakers_shadow-box cards_width" style="background-color: <?php echo $color; ?>; overflow:hidden;">
+              <div class=" bookmakers_d-flex w-100 bookmakers_flex-column">
                 <div class="heading-text" style="z-index:2; ">
                   <?php
                   if ($counter >= 9) {
@@ -91,7 +91,7 @@ function bd_bookmakers_directory_short($atts)
                 </div>
 
                 <div class="d-block bookmakers_my-3"></div>
-                <div class=" d-flex justify-content-center">
+                <div class=" bookmakers_d-flex justify-content-center">
                   <a class="" href="<?php echo esc_attr($bookerID_link); ?>" target="_blank">
                     <div class="bookmakers_mt-3">
                       <img class="bookmakers_img-fluid" src="<?php echo $image; ?>" alt="">
@@ -105,9 +105,10 @@ function bd_bookmakers_directory_short($atts)
                 <div class="d-block text-center" style="z-index:2; background-color: <?= $color; ?>">
                   <span class=" d-none d-md-block"><a class="stoiximatikes-link-layout" href="<?php echo esc_attr($bookerID_link); ?>" target="_blank"><?php echo esc_attr(str_replace("Live", "gr", $title)) ?></a></span>
                   <div class="d-block ">
-                    <div class=" d-flex justify-content-center align-self-center align-middle">
+                    <div class=" bookmakers_d-flex justify-content-center align-self-center align-middle">
 
                       <?php
+
 
                       echo  $stars = userVotes::drawStarsDefault($score / 2, 20);
                       ?>
@@ -116,7 +117,7 @@ function bd_bookmakers_directory_short($atts)
                   </div>
                 </div>
               </div>
-              <div class="m-0 d-flex flex-column justify-content-center">
+              <div class="m-0 bookmakers_d-flex flex-column justify-content-center">
                 <button class="btn bookmakers_my-2 d-block button-text-large button-large-glossy position-relative align-self-center">
                   <a style="color:white!important;" rel="nofollow" href="<?php echo esc_attr($bookerID_link); ?>" target="_blank">
                     <?= $atts['cta'] ?>
@@ -178,8 +179,8 @@ function bd_bookmakers_directory_short($atts)
         ?>
 
           <div class="w-100 stripted-blue-row border-bottom border-dark">
-            <div class=" m-0 pb-2 ">
-              <div class="col-md-4 mt-5 pt-5 pb-2 bookmenu align-items-center">
+            <div class=" bookmakers_ml-2 pb-2 bookmakers_d-flex bookmakers_flex-wrap bookmakers_justify-content-between">
+              <div class="bookmakers_w-25 mt-5 pt-5 pb-2 bookmakers_align-self-center">
                 <a href="<?php echo $bookerID_link; ?>">
                   <div class="mt-3 bookmakers_p-3" style="background-color: <?php echo $color ?>;">
                     <img class="bookmakers_img-fluid" src="<?php echo $image; ?>" alt="">
@@ -187,7 +188,7 @@ function bd_bookmakers_directory_short($atts)
                 </a>
               </div>
 
-              <div class="col-8 pr-2 pl-0 d-flex flex-column align-items-center">
+              <div class="bookmakers_w-50 pr-2 pl-0 bookmakers_d-flex bookmakers_flex-column bookmakers_align-self-center">
                 <div class="w-100 p-0">
                   <a class="text-center d-block text-danger stoiximatikes-link" href="<?php echo esc_attr($bookerID_link); ?>"><?php echo esc_attr(str_replace("Live", "gr", $title)) . " »"; ?></a>
                 </div>
