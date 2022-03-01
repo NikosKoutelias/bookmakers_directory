@@ -54,7 +54,7 @@ function bd_bookmakers_directory_short($atts)
 
 
       <div id="builder" class="container-fluid bookmakers_directory p-0 ">
-        <div class="bookmakers_d-flex bookmakers_flex-wrap w-100 justify-content-center">
+        <div class="bookmakers_d-flex bookmakers_flex-wrap w-100 bookmakers_justify-content-center">
           <?php
           $counter = 0;
 
@@ -91,7 +91,7 @@ function bd_bookmakers_directory_short($atts)
                 </div>
 
                 <div class="d-block bookmakers_my-3"></div>
-                <div class=" bookmakers_d-flex justify-content-center">
+                <div class=" bookmakers_d-flex bookmakers_justify-content-center">
                   <a class="" href="<?php echo esc_attr($bookerID_link); ?>" target="_blank">
                     <div class="bookmakers_mt-3">
                       <img class="bookmakers_img-fluid" src="<?php echo $image; ?>" alt="">
@@ -105,7 +105,7 @@ function bd_bookmakers_directory_short($atts)
                 <div class="d-block text-center" style="z-index:2; background-color: <?= $color; ?>">
                   <span class=" d-none d-md-block"><a class="stoiximatikes-link-layout" href="<?php echo esc_attr($bookerID_link); ?>" target="_blank"><?php echo esc_attr(str_replace("Live", "gr", $title)) ?></a></span>
                   <div class="d-block ">
-                    <div class=" bookmakers_d-flex justify-content-center align-self-center align-middle">
+                    <div class=" bookmakers_d-flex bookmakers_justify-content-center bookmakers_align-self-center align-middle">
 
                       <?php
 
@@ -117,8 +117,8 @@ function bd_bookmakers_directory_short($atts)
                   </div>
                 </div>
               </div>
-              <div class="m-0 bookmakers_d-flex flex-column justify-content-center">
-                <button class="btn bookmakers_my-2 d-block button-text-large button-large-glossy position-relative align-self-center">
+              <div class="m-0 bookmakers_d-flex flex-column bookmakers_justify-content-center">
+                <button class="btn bookmakers_my-2 d-block button-text-large button-large-glossy position-relative bookmakers_align-self-center">
                   <a style="color:white!important;" rel="nofollow" href="<?php echo esc_attr($bookerID_link); ?>" target="_blank">
                     <?= $atts['cta'] ?>
                     <?php
@@ -133,7 +133,7 @@ function bd_bookmakers_directory_short($atts)
                 <?php
                 if (!empty($terms)) {
                 ?>
-                  <small class="" style="display:block;text-align: center;color:white;font-size: 8px;margin-bottom: 5px;"><?= $terms ?></small>
+                  <small class="" style="display:block;text-align: center;color:white;font-size: 8px;margin-bottom: 5px; margin-left:2px; margin-right: 2px;"><?= $terms ?></small>
                 <?php
                 }
                 ?>
@@ -179,7 +179,7 @@ function bd_bookmakers_directory_short($atts)
         ?>
 
           <div class="w-100 stripted-blue-row border-bottom border-dark">
-            <div class=" bookmakers_ml-2 pb-2 bookmakers_d-flex bookmakers_flex-wrap bookmakers_justify-content-between">
+            <div class=" bookmakers_ml-2 pb-2 bookmakers_d-flex bookmakers_flex-wrap bookmakers_justify-content-sidebar">
               <div class="bookmakers_w-25 mt-5 pt-5 pb-2 bookmakers_align-self-center">
                 <a href="<?php echo $bookerID_link; ?>">
                   <div class="mt-3 bookmakers_p-3" style="background-color: <?php echo $color ?>;">
