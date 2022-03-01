@@ -1,8 +1,4 @@
-if (
-  document.URL.indexOf(
-    "http://localhost/livestoixima.gr/wp-admin/admin.php?page=shortcode_generator"
-  ) >= 0
-) {
+if (document.URL.indexOf("wp-admin/admin.php?page=shortcode_generator") >= 0) {
   jQuery(document).ready(function () {
     jQuery("#sortlist").sortable({
       update: function (event, ui) {
