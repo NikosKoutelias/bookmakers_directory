@@ -147,7 +147,7 @@ function adminHTML()
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="admin_form-group">
                 <label for="layout" class="h5 admin_m-1">Layouts</label>
                 <select name="layout" class="form-select admin_m-1" id="layout" data-attribute="layout">
                     <option disabled>Κάνε μια επιλογή</option>
@@ -181,7 +181,7 @@ function adminHTML()
                 </select>
             </div>
 
-            <div class="control w-25">
+            <div class="admin_form-control admin_w-25">
                 <label for="sorting_id" class="h5 admin_m-1 admin_mt-1">Sorting by ID</label>
                 <input type="checkbox" class="trigger admin_m-2 admin_mt-1" id="sorting_id" name="sorting_id" data-toggle="collapse1" data-target="#collapse_panel" value="">
             </div>
