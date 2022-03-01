@@ -290,25 +290,25 @@ margin-bottom: 10px !important;
 
 
 
-@media screen and (max-width: 510px) {
-    .bookmakers_directory .cards_width{
-        width: 50%;
-        margin: 5px;
-        position: relative;
-    }
+@media screen and (max-width: 767px) {
+  .bookmakers_directory .cards_width{
+      width: 250px;
+      margin: 5px;
+      position: relative;
+  }
 }
-@media screen and (min-width: 511px) and (max-width: 991px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
     .bookmakers_directory .cards_width{
-        width: 45%;
-        margin: 10px;
+        width: 180px;
+        margin: 5px;
         position: relative;
     }
 }
 
   @media screen and (min-width: 992px) and (max-width: 1199px){
     .bookmakers_directory .cards_width{
-        width: 30%;
-        margin: 10px;
+        width: 250px;
+        margin: 5px;
         position: relative;
     }
 
@@ -316,8 +316,8 @@ margin-bottom: 10px !important;
 
 @media screen and (min-width: 1200px){
     .bookmakers_directory .cards_width{
-        width: 22%;
-        margin: 10px;
+        width: 205px;
+        margin: 5px;
         position: relative;
     }
 

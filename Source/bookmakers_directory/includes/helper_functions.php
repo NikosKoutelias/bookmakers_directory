@@ -9,7 +9,7 @@ function rest_data()
 
     $memcache_resp = $memcache_obj->get('bd_bookmakers');
 
-    $url = site_url() . '/wp-json/customroutes/bookmakersdirectorydata';
+    $url = site_url() . '/wp-json/bookmakersdirectory/data';
     if (!$memcache_resp || @$memcache_resp['code'] == "rest_no_route") {
         $response = wp_remote_get($url);
         $data = json_decode(wp_remote_retrieve_body($response), true);
