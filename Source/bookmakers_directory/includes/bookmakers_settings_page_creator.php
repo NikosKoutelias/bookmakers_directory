@@ -5,7 +5,13 @@ add_action('admin_menu', 'adminPage');
 function adminPage()
 {
 
-    add_menu_page('Bookmakers Shortcode Generator', 'Bookmakers Shortcode', 'manage_options', 'shortcode_generator', 'adminHTML');
+    $mypage = add_menu_page('Bookmakers Shortcode Generator', 'Bookmakers Shortcode', 'manage_options', 'shortcode_generator', 'adminHTML');
+    add_action('load-' . $mypage, 'load_admin_js');
+}
+
+function load_admin_js()
+{
+    wp_enqueue_script('bookers_helpers');
 }
 
 function adminHTML()
@@ -14,7 +20,7 @@ function adminHTML()
     $data = rest_data();
     $validate_data = valid($data);
     unset($data);
-    wp_enqueue_script('bookers_helpers');
+
 ?>
     <style>
         *,
