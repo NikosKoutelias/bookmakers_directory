@@ -159,7 +159,7 @@ function bd_bookmakers_directory_short($atts)
           <span class="text-center h1 mt-1 title-black sidebar-text-design" style="border-bottom: none;"><?php echo $atts['title']; ?></span>
         </div>
 
-        <div class="mt-3 d-block border-bottom border-dark" style="height: 1rem;"></div>
+        <div class="bookmakers_mt-3 d-block border-bottom border-dark" style="height: 1rem;"></div>
 
         <?php
         $counter = 0;
@@ -180,9 +180,9 @@ function bd_bookmakers_directory_short($atts)
 
           <div class="w-100 stripted-blue-row border-bottom border-dark">
             <div class=" bookmakers_ml-2 pb-2 bookmakers_d-flex bookmakers_flex-wrap bookmakers_justify-content-sidebar">
-              <div class="bookmakers_w-25 mt-5 pt-5 pb-2 bookmakers_align-self-center">
+              <div class="bookmakers_w-25 pb-2 bookmakers_mt-2 bookmakers_align-self-center">
                 <a href="<?php echo $bookerID_link; ?>">
-                  <div class="mt-3 bookmakers_p-3" style="background-color: <?php echo $color ?>;">
+                  <div class="bookmakers_mt-3 bookmakers_p-3" style="background-color: <?php echo $color ?>;">
                     <img class="bookmakers_img-fluid" src="<?php echo $image; ?>" alt="">
                   </div>
                 </a>
@@ -212,7 +212,7 @@ function bd_bookmakers_directory_short($atts)
             <?php
             if (!empty($terms)) {
             ?>
-              <small class="d-md-block w-100 text-center mt-5 pb-0 text-dark font-weight-light" style="display:block; text-align:center; color:black; font-size: 6px;margin-bottom: 1px; font-weight:600"><?= $terms ?></small>
+              <small class="d-md-block w-100 text-center bookmakers_mt-3 pb-0 text-dark font-weight-light" style="display:block; text-align:center; color:black; font-size: 6px;margin-bottom: 1px; font-weight:600"><?= $terms ?></small>
 
 
 
@@ -224,12 +224,12 @@ function bd_bookmakers_directory_short($atts)
           $counter++;
         }
         ?>
-        <div class="d-block mt-5" style="height: 0.5rem;"></div>
+        <div class="d-block bookmakers_mt-3" style="height: 0.5rem;"></div>
         <div class="w-100 d-md-block ">
-          <button class="btn btn-danger w-100 mt-3 btn-md d-block shadow all-books-text button-text col-12">
+          <button class="btn btn-danger w-100 bookmakers_mt-2 btn-md d-block shadow all-books-text button-text col-12">
             <a class="" href="<?php echo site_url("/stoiximatikes-etairies") ?>" target="_blank" style="font-size:14px">ΟΛΟΙ ΟΙ BOOKMAKERS</a>
           </button>
-          <div class="d-block mt-5" style="height: 0.5rem;"></div>
+          <div class="d-block bookmakers_mt-3" style="height: 0.5rem;"></div>
         </div>
 
 
